@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Reparaciones</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Taller de Reparaciones Electrónicas</h1>
+
+    <div class="form-container">
+        <h2>Añadir Cliente</h2>
+        <form id="cliente-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Añadir Cliente</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <h2>Añadir Equipo</h2>
+        <form id="equipo-form">
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca" required>
+            
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" required>
+
+            <label for="numero_serie">Número de Serie:</label>
+            <input type="text" id="numero_serie" name="numero_serie" required>
+
+            <label for="propietario_id">ID del Propietario:</label>
+            <input type="number" id="propietario_id" name="propietario_id" required>
+
+            <button type="submit">Añadir Equipo</button>
+        </form>
+    </div>
+
+    <div class="list-container">
+        <h2>Clientes Registrados</h2>
+        <ul id="clientes-list"></ul>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
