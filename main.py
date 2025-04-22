@@ -1,8 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import clientes, equipos, ordenes
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+import os
 
 app = FastAPI()
+
+# Servir archivos estáticos (CSS, JS, imágenes, etc.)
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+# Servir el index.html al acceder a la raíz
+@app.get("/")
+def get_index():
+    return FileResponse(os.path.join("frontend", "index.html"))
+
 
 # Middleware de logging para debugging
 @app.middleware("http")

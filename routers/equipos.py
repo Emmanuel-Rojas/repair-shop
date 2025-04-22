@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine, Base
-from models import Equipo
+from models import Equipo as EquipoModel
 from schemas import EquipoCreate, Equipo
 
 router = APIRouter()
@@ -17,7 +17,7 @@ def get_db():
 
 @router.post("/equipos/", response_model=Equipo)
 def create_equipo(equipo: EquipoCreate, db: Session = Depends(get_db)):
-    db_equipo = Equipo(**equipo.dict())
+    db_equipo = EquipoModel(**equipo.dict())
     db.add(db_equipo)
     db.commit()
     db.refresh(db_equipo)
@@ -25,14 +25,14 @@ def create_equipo(equipo: EquipoCreate, db: Session = Depends(get_db)):
 
 @router.get("/equipos/{equipo_id}", response_model=Equipo)
 def read_equipo(equipo_id: int, db: Session = Depends(get_db)):
-    db_equipo = db.query(Equipo).filter(Equipo.id == equipo_id).first()
+    db_equipo = db.query(EquipoModel).filter(EquipoModel.id == equipo_id).first()
     if db_equipo is None:
         raise HTTPException(status_code=404, detail="Equipo no encontrado")
     return db_equipo
 
 @router.put("/equipos/{equipo_id}", response_model=Equipo)
 def update_equipo(equipo_id: int, equipo: EquipoCreate, db: Session = Depends(get_db)):
-    db_equipo = db.query(Equipo).filter(Equipo.id == equipo_id).first()
+    db_equipo = db.query(EquipoModel).filter(EquipoModel.id == equipo_id).first()
     if db_equipo is None:
         raise HTTPException(status_code=404, detail="Equipo no encontrado")
     for key, value in equipo.dict().items():
@@ -43,7 +43,7 @@ def update_equipo(equipo_id: int, equipo: EquipoCreate, db: Session = Depends(ge
 
 @router.delete("/equipos/{equipo_id}")
 def delete_equipo(equipo_id: int, db: Session = Depends(get_db)):
-    db_equipo = db.query(Equipo).filter(Equipo.id == equipo_id).first()
+    db_equipo = db.query(EquipoModel).filter(EquipoModel.id == equipo_id).first()
     if db_equipo is None:
         raise HTTPException(status_code=404, detail="Equipo no encontrado")
     db.delete(db_equipo)
