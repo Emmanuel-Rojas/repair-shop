@@ -1,0 +1,58 @@
+/* Fondo negro para toda la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Fondo negro */
+    color: #00aaff; /* Texto azul claro */
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el formulario */
+form {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #0000ff; /* Texto azul */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 400px; /* Ancho máximo del formulario */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar el formulario */
+}
+
+/* Alinear los elementos del formulario */
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #0000ff; /* Azul */
+}
+
+form input,
+form textarea,
+form button {
+    width: 100%; /* Alinear al ancho del formulario */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón del formulario */
+form button {
+    background-color: #0000ff; /* Fondo azul */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
+}
+
+/* Alinear el formulario al centro */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

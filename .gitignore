@@ -1,0 +1,32 @@
+# === Python (Back/venv) ===
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# === Node.js (Front/node_modules) ===
+node_modules/
+.next/
+dist/
+out/
+
+# === Entornos y secretos ===
+.env
+.env.local
+*.secret
+*.pem
+
+# === VSCode y otros editores ===
+.vscode/
+.idea/
+*.swp
+
+# === Sistemas operativos ===
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+# === Archivos de testing o builds ===
+coverage/
+*.egg-info/
+*.spec
